@@ -62,12 +62,12 @@ const platformMenuList = [
                 </ListItem>
                 },
                 {   name: "entities",
-        component: <ListItem button>
+        component: <ListItemLink button href="/entities">
                     <ListItemIcon>
                         <BusinessIcon />
                     </ListItemIcon>
                     <ListItemText primary="Entities" />
-                </ListItem>
+                </ListItemLink>
                 },
                 {   name: "administration",
         component: <ListItem button>

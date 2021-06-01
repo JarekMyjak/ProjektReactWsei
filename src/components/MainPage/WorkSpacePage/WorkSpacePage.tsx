@@ -6,6 +6,7 @@ import entitiesIcon from 'src/icons/entities2.svg';
 import StartWorking from './Components/StartWorking';
 import { FlexDiv } from 'src/styledHelpers/components';
 import styled from 'styled-components';
+import LatestUpdates from './Components/LatestUpdates/LatestUpdates';
 
 const Content = styled(FlexDiv)`
     flex-direction: column;
@@ -27,7 +28,7 @@ const WorkSpacePage = () => {
                 </Route>
                 <Route path="/workspaces/supliercontract">
                     <Baner
-                        title='Client Contracts'
+                        title='Suplier Contracts'
                         description='Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty. Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty, Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty.Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do robotyWorkspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty'
                         bgImg='https://thumbs.dreamstime.com/b/frustrated-stressed-male-book-writer-frustrated-stressed-male-writer-sitting-laptop-writing-book-117750236.jpg'
                         icon={entitiesIcon}
@@ -35,7 +36,7 @@ const WorkSpacePage = () => {
                 </Route>
                 <Route path="/workspaces/corporate">
                     <Baner
-                        title='Client Contracts'
+                        title='Corporate'
                         description='Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty. Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty, Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty.Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do robotyWorkspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty'
                         bgImg='https://thumbs.dreamstime.com/b/frustrated-stressed-male-book-writer-frustrated-stressed-male-writer-sitting-laptop-writing-book-117750236.jpg'
                         icon={entitiesIcon}
@@ -43,7 +44,7 @@ const WorkSpacePage = () => {
                 </Route>
                 <Route path="/workspaces/groupnorms">
                     <Baner
-                        title='Client Contracts'
+                        title='Group Norms'
                         description='Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty. Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty, Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty.Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do robotyWorkspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty'
                         bgImg='https://thumbs.dreamstime.com/b/frustrated-stressed-male-book-writer-frustrated-stressed-male-writer-sitting-laptop-writing-book-117750236.jpg'
                         icon={entitiesIcon}
@@ -51,7 +52,7 @@ const WorkSpacePage = () => {
                 </Route>
                 <Route path="/workspaces/realestatecontracts">
                     <Baner
-                        title='Client Contracts'
+                        title='Real Estate Contracts'
                         description='Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty. Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty, Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty.Workspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do robotyWorkspace purpose cośtam cośtam trzeba wiedzieć po co sie przychodzi do roboty'
                         bgImg='https://thumbs.dreamstime.com/b/frustrated-stressed-male-book-writer-frustrated-stressed-male-writer-sitting-laptop-writing-book-117750236.jpg'
                         icon={entitiesIcon}
@@ -59,7 +60,7 @@ const WorkSpacePage = () => {
                 </Route>
             </Switch>
             <StartWorking />
-            
+            <LatestUpdates/>
         </Content>
     )
 }

@@ -20,6 +20,7 @@ import { getPhotos } from 'src/actions/photoActions';
 
 import { useDispatch } from "react-redux";
 import WorkSpacePage from "./WorkSpacePage/WorkSpacePage";
+import EntitiesPage from "./EntitiesPage/EntitiesPage";
 
 type GetUsers = ReturnType<typeof getUsers>;
 type GetPhotos = ReturnType<typeof getPhotos>;
@@ -65,8 +66,8 @@ export const MainPage: FC = () => {
                 <Route path="/profile">
                   <Profile/>
                 </Route>
-                <Route path="/publications">
-                  <h1>Publications</h1>
+                <Route path="/entities">
+                  <EntitiesPage/>
                 </Route>
                 <Route path="/users">
                   <p>users</p>

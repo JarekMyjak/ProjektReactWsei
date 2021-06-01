@@ -8,7 +8,9 @@ const Colors = {
     darkBlue: '#232C47',
     lightBackground: '#F5F7F9',
     blue: '#3347A1',
-    gray: `#90949a`
+    green: '#38ff53',
+    orange: '#ffb95e',
+    gray: '#90949a',
 }
 
 export default Colors;
