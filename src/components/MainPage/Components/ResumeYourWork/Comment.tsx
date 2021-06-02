@@ -45,7 +45,6 @@ const Comment = ({text, title, postId}:ISinglePost) => {
             <Typography gutterBottom>
                 {text}
             </Typography>
-
             <Grid container direction="row" alignItems="center">
                 <BusinessIcon /> example
                 <UserAvatar src='https://thumbs.dreamstime.com/b/frustrated-stressed-male-book-writer-frustrated-stressed-male-writer-sitting-laptop-writing-book-117750236.jpg' />

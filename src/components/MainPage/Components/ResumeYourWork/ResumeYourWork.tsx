@@ -81,7 +81,9 @@ const ResumeYourWork = () => {
                 </InlineFlexDiv>
             </TitleBarWraper>
             <div>
-                {(CategoryFilter === "All" ? commentList : commentList.filter(c=>c.postId===1))
+                {(CategoryFilter === "All" 
+                ? commentList 
+                : commentList.filter(c=>c.postId===1))
                     .filter(c=>c.name.includes(Filter))
                     .slice((currentPage-1)*10, (currentPage-1)*10+10)
                     .map((e: IComment, index: number) =>
