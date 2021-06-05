@@ -1,19 +1,12 @@
-import {FC} from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
-import Colors from '../../../../styledHelpers/Colors';
+import Colors from 'src/styledHelpers/Colors';
 
 import houseImg from 'src/icons/house.svg';
-import publicationsImg from 'src/icons/publications.svg';
 import peopleImg from 'src/icons/people.svg';
-import entitiesImg from 'src/icons/entities.svg';
-import corporateImg from 'src/icons/entities2.svg';
-import administrationImg from 'src/icons/administration.svg';
 import { fontSize } from 'src/styledHelpers/FontSizes';
 
-import {
-    Link
-  } from "react-router-dom";
-import { StringifyOptions } from 'node:querystring';
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
     background-color:${Colors.white};
@@ -76,8 +69,6 @@ const LastUpdate = styled.div`
     color:${Colors.gray};
     letter-spacing:.4px;
 `;
-
-const img: string = 'https://thumbs.dreamstime.com/b/frustrated-stressed-male-book-writer-frustrated-stressed-male-writer-sitting-laptop-writing-book-117750236.jpg'
 
 interface WorkspaceProps {
     bgImg: string,

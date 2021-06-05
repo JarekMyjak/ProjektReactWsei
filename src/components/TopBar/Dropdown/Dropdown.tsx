@@ -1,24 +1,21 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import useDropdown from 'react-dropdown-hook';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import styled from "styled-components";
 import Typography from '@material-ui/core/Typography';
 import KeyboardArrowDownRoundedIcon from '@material-ui/icons/KeyboardArrowDownRounded';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Colors from "../../../styledHelpers/Colors";
-import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button'
 import BusinessIcon from '@material-ui/icons/Business';
 
 import Menu from "./Menu/Menu"
 
-import { Link } from "react-router-dom";
 import Paper from '@material-ui/core/Paper';
 
 import {
     Switch,
-    Route,
-    useLocation 
+    Route
 } from "react-router-dom";
 
 
@@ -35,7 +32,7 @@ const DropdownUpperBar = styled.div`
     justify-content: space-between;
 `
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
     createStyles({
         title: {
             flexGrow: 1,
@@ -52,7 +49,6 @@ const Dropdown: FC = () => {
     const classes = useStyles();
     const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] = useDropdown();
 
-    let location = useLocation();
 
     return (
         <div>

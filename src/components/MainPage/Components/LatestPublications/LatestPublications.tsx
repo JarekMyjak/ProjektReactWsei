@@ -10,6 +10,7 @@ import { IUsersReducer } from 'src/reducers/usersReducer';
 import Showcase from './Components/Showcase';
 import PublicationsList from './Components/PublicationsList'
 import { Paper } from '@material-ui/core';
+import { IPhotosReducer } from 'src/reducers/photoReducer';
 
 const Container = styled(Paper)`
     /* width:1000px; */
@@ -22,8 +23,10 @@ const Container = styled(Paper)`
 
 export default function LatestPublications() {
 
-    const { postList } = useSelector<IState, IPostReducer>(globalState => ({
+    const { postList, photoList, usersList } = useSelector<IState, IPostReducer & IPhotosReducer & IUsersReducer>(globalState => ({
         ...globalState.posts,
+        ...globalState.photos,
+        ...globalState.users
     }));
 
     const threePublications: IPost[] = [];
@@ -36,7 +39,7 @@ export default function LatestPublications() {
     return (
         <Container elevation={2}>
             <Showcase
-                        postImage={'https://thumbs.dreamstime.com/b/frustrated-stressed-male-book-writer-frustrated-stressed-male-writer-sitting-laptop-writing-book-117750236.jpg'} 
+                        postImage={photoList[postList[0]?.id]?.url} 
                         date="21.07.2021" 
                         // userId={postList[0].userId} 
                         userId={postList[0]?.userId}

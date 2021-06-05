@@ -1,8 +1,7 @@
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography'
-import React, { useEffect, useState } from 'react'
-import Colors from "src/styledHelpers/Colors";
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded'
 import AdjustIcon from '@material-ui/icons/Adjust';
@@ -14,33 +13,25 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import ShareIcon from '@material-ui/icons/Share';
 import Entity from './Entity'
 
-import { IComment } from 'src/entities/comments';
 import { IState } from 'src/reducers';
-import { ICommentReducer } from 'src/reducers/commentReducer';
 import { IPhotosReducer } from 'src/reducers/photoReducer';
-import { IUsersReducer } from 'src/reducers/usersReducer';
 import { useSelector } from 'react-redux';
 
 import Pagination from '@material-ui/lab/Pagination';
 import CategoryFilterButton from './CategoryFilterButton';
 import { InlineFlexDiv } from "src/styledHelpers/components";
 import Button from '@material-ui/core/Button';
-import BusinessIcon from '@material-ui/icons/Business';
-import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import AppsIcon from '@material-ui/icons/Apps';
 import TocIcon from '@material-ui/icons/Toc';
 import { ISinglePhoto } from 'src/entities/userPhotos';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Filters from './Filters';
 
 const TitleBarWraper = styled.div`
     display: flex;
     justify-content: space-between
-`;
-const ButtonBarWraper = styled.div`
-    display: flex;
-    justify-content: space-around
 `;
 
 const CenterH = styled.div`
@@ -56,9 +47,6 @@ const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     max-width: 1200px;
-`
-const Wall = styled.span`
-    border-right: 3px solid gray;
 `
 
 const EntitiesContainer = () => {
@@ -77,7 +65,8 @@ const EntitiesContainer = () => {
         setCurrentPage(1)
     }
     const [IsSortedAlphabeticaly, setIsSortedAlphabeticaly] = useState(false);
-    const [IsShownAsMosaic, setIsShownAsMosaic] = useState(true)
+    const [IsShownAsMosaic, setIsShownAsMosaic] = useState(true);
+    const [IsFilterOpened, setIsFilterOpened] = useState(false);
 
     const { photoList } = useSelector<IState, IPhotosReducer>(globalState => ({
         ...globalState.photos
@@ -119,7 +108,11 @@ const EntitiesContainer = () => {
                     >
                             Sort
                     </Button>
-                    <Button startIcon={<FilterListIcon />}>Filter</Button>
+                    <Button
+                        startIcon={<FilterListIcon />}
+                        onClick={()=>setIsFilterOpened(!IsFilterOpened)}>
+                            Filter
+                            </Button>
                     <Divider orientation="vertical" flexItem />
                     <Button><ZoomOutMapIcon /></Button>
                     <Divider orientation="vertical" flexItem />
@@ -142,7 +135,13 @@ const EntitiesContainer = () => {
                     <CategoryFilterButton value={CategoryFilter} handler={HandleCategoryFilterInput} />
                 </InlineFlexDiv>
             </TitleBarWraper>
-
+            <br />
+            {IsFilterOpened ? 
+            <TitleBarWraper>
+                <Filters />
+        </TitleBarWraper>
+        :<div></div>}
+            <br />
             <Container>
                 {(CategoryFilter === "All"
                     ? photoList

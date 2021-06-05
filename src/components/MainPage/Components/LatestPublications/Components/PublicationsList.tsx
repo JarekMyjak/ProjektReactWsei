@@ -7,6 +7,9 @@ import Colors from 'src/styledHelpers/Colors';
 import { fontSize } from 'src/styledHelpers/FontSizes';
 
 import { ShortPublication } from './ShortPublication';
+import { useSelector } from 'react-redux';
+import { IState } from 'src/reducers';
+import { IPhotosReducer } from 'src/reducers/photoReducer';
 
 
 const Container = styled.div`
@@ -40,6 +43,11 @@ export interface ILastPublications{
 const postDefaultPhoto:string = 'https://thumbs.dreamstime.com/b/frustrated-stressed-male-book-writer-frustrated-stressed-male-writer-sitting-laptop-writing-book-117750236.jpg';
 
 export const PublicationsList: FC<ILastPublications> = (props) =>{
+
+    const { photoList } = useSelector<IState, IPhotosReducer>(globalState => ({
+        ...globalState.photos,
+    }));
+
     return(
         <Container>
             <Title>
@@ -48,7 +56,7 @@ export const PublicationsList: FC<ILastPublications> = (props) =>{
             <Shorts>
                 {props.publications.map((el,index) => (
                     <ShortPublication key={index}
-                    postImage={postDefaultPhoto} 
+                    postImage={photoList[el?.id]?.url} 
                     date="21.07.2021" 
                     userId={el?.userId} 
                     title={el?.title}/>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import LatestPublications from "./LatestPublications/LatestPublications"
 import ResumeYourWork from './ResumeYourWork/ResumeYourWork';
 import Workspaces from "./Workspaces/Workspaces";

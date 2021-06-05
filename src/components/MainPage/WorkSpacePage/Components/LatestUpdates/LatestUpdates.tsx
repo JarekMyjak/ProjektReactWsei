@@ -1,8 +1,7 @@
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography'
-import React, { useEffect, useState } from 'react'
-import Colors from "src/styledHelpers/Colors";
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded'
 import Update from './Update'
@@ -10,8 +9,6 @@ import Update from './Update'
 import { IComment } from 'src/entities/comments';
 import { IState } from 'src/reducers';
 import { ICommentReducer } from 'src/reducers/commentReducer';
-import { IPhotosReducer } from 'src/reducers/photoReducer';
-import { IUsersReducer } from 'src/reducers/usersReducer';
 import { useSelector } from 'react-redux';
 
 import Pagination from '@material-ui/lab/Pagination';
@@ -19,7 +16,6 @@ import CategoryFilterButton from './CategoryFilterButton';
 import { InlineFlexDiv } from "src/styledHelpers/components";
 import Button from '@material-ui/core/Button';
 import BusinessIcon from '@material-ui/icons/Business';
-import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 
 const TitleBarWraper = styled.div`
     display: flex;

@@ -2,7 +2,6 @@ import React from 'react'
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import styled from 'styled-components'
 import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
 
 interface filterButtonProps{

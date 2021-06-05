@@ -1,11 +1,9 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import Paper from '@material-ui/core/Paper';
-import styled from 'styled-components'
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from '@material-ui/icons/Inbox';
 import Divider from '@material-ui/core/Divider';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from "@material-ui/core/Grid";
@@ -21,6 +19,10 @@ import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
+import { IState } from "src/reducers";
+import { useSelector } from "react-redux";
+import { IPhotosReducer } from "src/reducers/photoReducer";
+import { IUsersReducer } from "src/reducers/usersReducer";
 
 
 
@@ -41,22 +43,27 @@ const useStyles = makeStyles((theme: Theme) =>
 export const LeftMenu: FC = () => {
   const classes = useStyles();
 
+  const { usersList, photoList } = useSelector<IState, IUsersReducer & IPhotosReducer>(globalState => ({
+    ...globalState.users,
+    ...globalState.photos
+  }));
+
   return (
     <div className={classes.marginDiv}>
       <Paper elevation={3}>
         <List>
           <Grid container alignItems="center" direction="column">
             <Grid item >
-              <Avatar alt="Name" src="https://thispersondoesnotexist.com/image" className={classes.largeImg} />
+              <Avatar alt="Name" src={photoList[0]?.url} className={classes.largeImg} />
             </Grid>
             <Grid item >
               <Typography variant="h6" component="h6" >
-                Humberta Smith
+                {usersList[0]?.name}
               </Typography>
             </Grid>
             <Grid item >
               <Typography variant="caption" display="block" gutterBottom>
-                Job title - Company
+              {usersList[0]?.company.name}
               </Typography>
             </Grid>
           </Grid>
@@ -78,25 +85,25 @@ export const LeftMenu: FC = () => {
         </List>
       </Paper>
       <List>
-          <ListItem button>
-            <ListItemIcon>
-              <BallotIcon fontSize="large"/>
-            </ListItemIcon>
-            <ListItemText primary="Publications" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon >
-              <TrackChangesIcon fontSize="large"/>
-            </ListItemIcon>
-            <ListItemText   primary="Ecosystem" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon >
-              <BusinessIcon fontSize="large"/>
-            </ListItemIcon>
-            <ListItemText   primary="Entities" />
-          </ListItem>
-        </List>
+        <ListItem button>
+          <ListItemIcon>
+            <BallotIcon fontSize="large" />
+          </ListItemIcon>
+          <ListItemText primary="Publications" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon >
+            <TrackChangesIcon fontSize="large" />
+          </ListItemIcon>
+          <ListItemText primary="Ecosystem" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon >
+            <BusinessIcon fontSize="large" />
+          </ListItemIcon>
+          <ListItemText primary="Entities" />
+        </ListItem>
+      </List>
     </div>
   )
 }

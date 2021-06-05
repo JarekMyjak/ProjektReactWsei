@@ -12,13 +12,6 @@ const PaddedPaper = styled(Paper)`
     padding: 0.5em
 `
 
-const UserAvatar = styled.img`
-    width:20px;
-    height:20px;
-    border-radius:10px;
-    margin-right:5px;
-    margin-left:5px;
-`;
 
 const Dot = styled.span`
     width:5px;
@@ -35,7 +28,7 @@ interface ISinglePost {
     postId: number;
 }
 
-const Update = ({ text, title, postId }: ISinglePost) => {
+const Update = ({ text, title }: ISinglePost) => {
     return (
         <>
             <PaddedPaper elevation={2}>

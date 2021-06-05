@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import SingleWorkspace from './SingleWorkspace';
 
-import SwiperCore, { Navigation, Pagination, Autoplay} from 'swiper';
 import { Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/swiper.scss';
 

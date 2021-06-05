@@ -1,14 +1,10 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Colors from "src/styledHelpers/Colors";
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Buttons from './Buttons/Buttons';
 
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';

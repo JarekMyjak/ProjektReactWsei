@@ -1,8 +1,7 @@
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography'
-import React, { useEffect, useState } from 'react'
-import Colors from "src/styledHelpers/Colors";
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded'
 import Comment from './Comment'
@@ -10,13 +9,13 @@ import Comment from './Comment'
 import { IComment } from 'src/entities/comments';
 import { IState } from 'src/reducers';
 import { ICommentReducer } from 'src/reducers/commentReducer';
-import { IPhotosReducer } from 'src/reducers/photoReducer';
-import { IUsersReducer } from 'src/reducers/usersReducer';
 import { useSelector } from 'react-redux';
 
 import Pagination from '@material-ui/lab/Pagination';
 import CategoryFilterButton from './CategoryFilterButton';
 import { InlineFlexDiv } from "src/styledHelpers/components"
+import { IPhotosReducer } from 'src/reducers/photoReducer';
+import { IUsersReducer } from 'src/reducers/usersReducer';
 
 const TitleBarWraper = styled.div`
     display: flex;
@@ -48,8 +47,10 @@ const ResumeYourWork = () => {
         setCurrentPage(1)
     }
 
-    const { commentList } = useSelector<IState, ICommentReducer>(globalState => ({
-        ...globalState.comments
+    const { commentList, photoList, usersList } = useSelector<IState, ICommentReducer & IPhotosReducer & IUsersReducer>(globalState => ({
+        ...globalState.comments,
+        ...globalState.photos,
+        ...globalState.users
     }));
 
     const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {

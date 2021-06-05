@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Baner from './Components/Baner'
-import BusinessIcon from '@material-ui/icons/Business';
 import entitiesIcon from 'src/icons/entities2.svg';
 import StartWorking from './Components/StartWorking';
 import { FlexDiv } from 'src/styledHelpers/components';

@@ -8,12 +8,13 @@ import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import TextField from '@material-ui/core/TextField'
-import InputBase from '@material-ui/core/InputBase'
+
 
 import { IState } from 'src/reducers';
 import { IUsersReducer } from 'src/reducers/usersReducer';
 import { useSelector } from 'react-redux';
 import { ISingleUser } from 'src/entities/users';
+import { IPhotosReducer } from 'src/reducers/photoReducer';
 
 const ImgBadge = styled.img`
     width: 22px;
@@ -36,8 +37,15 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 
+
+
 const Picture = () => {
     const classes = useStyles();
+
+    const { photoList } = useSelector<IState, IPhotosReducer>(globalState => ({
+
+        ...globalState.photos
+    }));
 
     return (
         <Grid item container direction="column">
@@ -48,9 +56,9 @@ const Picture = () => {
                         vertical: 'bottom',
                         horizontal: 'right',
                     }}
-                    badgeContent={<ImgBadge src="https://thispersondoesnotexist.com/image" />}
+                    badgeContent={<ImgBadge src={photoList[3]?.url} />}
                 >
-                    <Avatar alt="Name" src="https://thispersondoesnotexist.com/image" className={classes.largeImg} />
+                    <Avatar alt="Name" src={photoList[0]?.url} className={classes.largeImg} />
                 </Badge>
             </Grid>
             <Grid item >
@@ -71,7 +79,6 @@ const ProfileForm = () => {
 
     useEffect(() => {
         setUser(usersList[0]);
-        console.log(usersList[0])
         return () => {
 
         }
