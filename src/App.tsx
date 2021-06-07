@@ -1,11 +1,18 @@
-import { FC } from "react";
+import React from "react";
 import { MainPage } from "./components/MainPage/MainPage";
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 
-export const App: FC = () => {
-  return (
-    <div>
-      <MainPage></MainPage>
-    </div>
-  )
+export default class App extends React.Component {
+  render() {
+    return <MainPage/>;
+  }
 }
+
+
+
+
+// export const App: FC = () => {
+//   return (
+//       <MainPage></MainPage>
+//   )
+// }
